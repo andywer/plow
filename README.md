@@ -125,6 +125,14 @@ VALUES
   ('Alice', 'alice@example.org', TRUE);
 ```
 
+## FAQs
+
+### Error: Migration failed. Reason: Hashes don't match for migrations
+
+Plow uses `postgres-migrations` which sets up a migration table and stores a hash for every migration run. You will see this error if you change a migration file (during development, I hope) that you already applied and run plow again.
+
+**Only during development:** Assuming that you have no valuable data in your local development database, it's easy to just whipe the whole database and restart the containers to re-run the migrations to start off fresh again. If you have a local docker-compose setup with a database container without a mount, then just run `docker-compose rm --stop postgres && docker-compose up` to re-initialize the whole database.
+
 ## License
 
 MIT
