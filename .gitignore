@@ -1,0 +1,11 @@
+.idea/
+.vscode/
+dist/*
+dist-*/*
+node_modules/
+test/rollup/dist/
+test/webpack/dist*
+test/workers/*.js
+.DS_Store
+Thumbs.db
+*.log

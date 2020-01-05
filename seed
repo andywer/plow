@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mkdir -p /seeds
+/app/plow.js seed /seeds

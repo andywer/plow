@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mkdir -p /migrations
+/app/plow.js migrate /migrations

@@ -1,0 +1,23 @@
+{
+  "extends": [
+    "tslint:latest"
+  ],
+  "rules": {
+    "curly": [true, "ignore-same-line"],
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "interface-over-type-literal": false,
+    "object-literal-sort-keys": false,
+    "only-arrow-functions": false,
+    "ordered-imports": [
+      true,
+      {
+        "named-imports-order": "lowercase-first"
+      }
+    ],
+    "semicolon": false
+  },
+  "rulesDirectory": []
+}
