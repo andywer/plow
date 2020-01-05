@@ -3,6 +3,7 @@
     "tslint:latest"
   ],
   "rules": {
+    "arrow-parens": false,
     "curly": [true, "ignore-same-line"],
     "interface-name": [
       true,
@@ -17,7 +18,8 @@
         "named-imports-order": "lowercase-first"
       }
     ],
-    "semicolon": false
+    "semicolon": false,
+    "trailing-comma": false
   },
   "rulesDirectory": []
 }

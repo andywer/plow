@@ -13,6 +13,7 @@ async function connect(config: PoolConfig) {
       await database.connect()
       return database
     } catch (error) {
+      // tslint:disable-next-line no-console
       console.error(`Database connection attempt #${attempt} failed:`, error)
       lastError = error
       await sleep(delay)
