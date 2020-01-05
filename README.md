@@ -1,4 +1,4 @@
-<h1 align="center">Plow</h1>
+<h1 align="center">Plow :man_farmer:</h1>
 <p align="center">Postgres migrations & seeding made easy</p>
 
 **⚠️ Not yet published**
@@ -10,7 +10,7 @@ The migrations are managed using [`postgres-migrations`](https://www.npmjs.com/p
 ## Installation
 
 ```
-$ npm install plow
+$ npm install @andywer/plow
 ```
 
 ## Usage - Command line tool
@@ -36,6 +36,12 @@ Environment variables
   You can also configure the connection using these environment variables.
 
   PGDATABASE, PGHOST, PGPASSWORD, PGPORT, PGUSER
+```
+
+Use `npx` to run a locally installed `plow` like this:
+
+```
+npx plow migrate ./migrations
 ```
 
 ## Usage - Docker
@@ -64,7 +70,7 @@ services:
       - ./seeds:/seeds
 ```
 
-Now every time you run `docker-compose up` your database will automatically have all migrations and seeds applied! 🚀
+Now every time you run `docker-compose up` your database will automatically have all migrations and seeds applied! :rocket:
 
 Note that we assume you have a local `migrations` and a `seeds` directory that we can mount into the container and that you have a `.env` file next to your docker-compose file:
 
