@@ -9,6 +9,7 @@
     "build": "tsc",
     "docker": "docker build . -t andywer/plow:$npm_package_version -t andywer/plow:latest",
     "postdocker": "echo 'Do not forget to \"docker push\" the updated image!'",
+    "postpublish": "npm run docker",
     "prepare": "run-s build",
     "test": "tslint -p ."
   },
