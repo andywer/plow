@@ -1,7 +1,8 @@
 <h1 align="center">Plow :man_farmer:</h1>
 <p align="center">Postgres migrations & seeding made easy</p>
-
-**⚠️ Not yet published**
+<p align="center">
+  <a href="https://npmjs.com/package/@andywer/plow"><img src="https://badgen.net/npm/v/@andywer/plow" /></a>
+</p>
 
 Plow is a no-non-sense tool to quickly and easily apply database migrations and seed PostgresQL databases.
 
