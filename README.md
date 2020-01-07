@@ -2,6 +2,7 @@
 <p align="center">Postgres migrations & seeding made easy</p>
 <p align="center">
   <a href="https://npmjs.com/package/@andywer/plow"><img src="https://badgen.net/npm/v/@andywer/plow" /></a>
+  <a href="https://hub.docker.com/repository/docker/andywer/plow"><img src="https://badgen.net/docker/size/andywer/plow/latest?icon=docker&label=image+size" /></a>
 </p>
 
 Plow is a no-non-sense tool to quickly and easily apply database migrations and seed PostgresQL databases.
