@@ -26,6 +26,8 @@
     "typescript": "^3.7.4"
   },
   "files": [
-    "dist/*"
+    "dist/*",
+    "*.d.ts",
+    "*.js"
   ]
 }
