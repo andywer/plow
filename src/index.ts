@@ -4,14 +4,44 @@ import * as Migrations from "postgres-migrations"
 
 const sleep = (delay: number) => new Promise(resolve => setTimeout(resolve, delay))
 
-async function connect(config: PoolConfig) {
-  let lastError: Error | undefined
-
-  for (let attempt = 1, delay = 250; attempt <= 5; attempt++ , delay = delay * 2) {
+async function keepTryingWhileOnStandby(config: PoolConfig) {
+  for (let standByAttempt = 1; standByAttempt < 60; standByAttempt++) {
     try {
       const database = new Pool(config)
       await database.connect()
       return database
+    } catch (standByError) {
+      if (standByError && standByError.code === "57P03") {
+        await sleep(500)
+      } else {
+        throw standByError
+      }
+    }
+  }
+
+  throw Error("Maximum re-connection tries while waiting for database to finish starting up / shutting down exceeded.")
+}
+
+async function connect(config: PoolConfig) {
+  let lastError: Error | undefined
+
+  for (let attempt = 1, delay = 250; delay <= 12000; attempt++ , delay = Math.round(delay * 1.5)) {
+    try {
+      try {
+        const database = new Pool(config)
+        await database.connect()
+        return database
+      } catch (error) {
+        if (error && error.code === "57P03") {
+          // Database is starting up or shutting down right now
+          // tslint:disable-next-line no-console
+          console.error(`Database connection attempt #${attempt} failed. Database is starting up or shutting down. Standing by…`)
+
+          return await keepTryingWhileOnStandby(config)
+        } else {
+          throw error
+        }
+      }
     } catch (error) {
       // tslint:disable-next-line no-console
       console.error(`Database connection attempt #${attempt} failed:`, error)
