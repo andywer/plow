@@ -18,10 +18,10 @@ function fail(message: string): never {
 
 export function readConfig(cliOptions: Record<string, string>): PoolConfig {
   return {
-    database: process.env.PGDATABASE || cliOptions.database || fail("Neither --database nor PGDATABASE set."),
-    host: process.env.PGHOST || cliOptions.host || fail("Neither --host nor PGHOST set."),
-    password: process.env.PGPASSWORD || cliOptions.password || fail("Neither --password nor PGPASSWORD set."),
-    port: Number.parseInt(process.env.PGPORT || cliOptions.port || "5432", 10),
-    user: process.env.PGUSER || cliOptions.user || fail("Neither --user nor PGUSER set.")
+    database: cliOptions.database || process.env.PGDATABASE || fail("Neither --database nor PGDATABASE set."),
+    host: cliOptions.host || process.env.PGHOST || fail("Neither --host nor PGHOST set."),
+    password: cliOptions.password || process.env.PGPASSWORD || fail("Neither --password nor PGPASSWORD set."),
+    port: Number.parseInt(cliOptions.port || process.env.PGPORT || "5432", 10),
+    user: cliOptions.user || process.env.PGUSER || fail("Neither --user nor PGUSER set.")
   }
 }
