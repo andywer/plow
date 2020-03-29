@@ -125,7 +125,7 @@ function getSeedFiles(files: string[]) {
   for (const file of files) {
     if (fs.statSync(file).isDirectory()) {
       const subFiles = fs.readdirSync(file)
-      filePaths.push(...subFiles)
+      filePaths.push(...subFiles.map(subfile => path.join(file, subfile)))
     } else if (file.match(/\.(js|sql)$/i)) {
       filePaths.push(file)
     }
