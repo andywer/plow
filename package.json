@@ -5,6 +5,7 @@
   "author": "Andy Wermke (https://github.com/andywer)",
   "bin": "./plow.js",
   "license": "MIT",
+  "repository": "github:andywer/plow",
   "scripts": {
     "build": "tsc",
     "docker": "docker build . -t andywer/plow:$npm_package_version -t andywer/plow:latest",
